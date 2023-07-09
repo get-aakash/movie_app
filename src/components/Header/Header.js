@@ -2,19 +2,22 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar color='none' expand="md border" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">Movie App</Navbar.Brand>
+        <Navbar.Brand><Link to='/'>Movie App</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto ">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">User</Nav.Link>
-            
+          <Nav className="ms-auto gap-2 ">
+            <Link to="/home" title='dashboard'><i class="fa-solid fa-house"></i></Link>
+            <Link to="/signup" title='signUp'><i className="fa-solid fa-user-plus"></i></Link>
+            <Link to="/signin" title='signIn'><i className="fa-solid fa-right-to-bracket"></i></Link>
+
+
           </Nav>
         </Navbar.Collapse>
       </Container>

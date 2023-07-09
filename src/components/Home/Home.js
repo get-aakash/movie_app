@@ -1,10 +1,12 @@
 import React from 'react'
+import DefaultLayout from '../layout/DefaultLayout'
+import { Col, Container, Row } from 'react-bootstrap'
 
 const Home = () => {
   return (
-    <div>
-      Home
-    </div>
+    <DefaultLayout>
+      
+    </DefaultLayout>
   )
 }
 
