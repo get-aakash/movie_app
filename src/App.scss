@@ -1,6 +1,22 @@
 .App {
   text-align: center;
 }
+.navbar-brand{
+  background: rgb(46, 75, 170);
+  width: 110px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.navbar-brand a{
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+
+}
 .main{
   min-height: 81vh;
 }
