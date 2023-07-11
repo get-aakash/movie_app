@@ -14,7 +14,7 @@ const Home = () => {
         <hr />
         <div className=' w-60 bg-dark p-5 rounded'>
         <SearchForm />
-        <CustomCard />
+        
         
 
         </div>
@@ -22,7 +22,7 @@ const Home = () => {
         <ListContainer />
         </div>
         <div>
-        <p3 className="d-flex mt-2 ">0 Movies found!</p3>
+        <div className="d-flex mt-2 ">0 Movies found!</div>
         </div>
         <hr />
         

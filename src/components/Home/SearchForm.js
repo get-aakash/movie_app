@@ -1,17 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
+import { fetchData } from '../../common/apis/movieApi';
+import CustomCard from "./CustomCard"
 
 const SearchForm = () => {
+  const [movieName, setMovieName] = useState("")
+  const [movie, setMovie] = useState({})
+  const[error, setError] = useState(false)
+
+  const handleOnChange = (e)=>{
+    const {value} = e.target
+    setMovieName(value)
+  }
+  const handleOnSubmit = async(e) =>{
+    e.preventDefault()
+    const result = await fetchData(movieName)
+    
+    
+    if(result.data.Response === "True"){
+      setMovie(result.data)
+      console.log(movie)
+      setError("")
+    }else{
+      setError(true)
+    }
+      
+      
+
+    
+    
+  }
   return (
     <div className='search-form' >
-      <Form>
+      <Form onSubmit={handleOnSubmit}>
         <Row>
           <Col xs={10}>
-          <Form.Control placeholder='Movie Name'/>
+          <Form.Control value={movieName} placeholder='Movie Name' onChange={handleOnChange}/>
           </Col>
           
           <Col>
@@ -19,6 +47,10 @@ const SearchForm = () => {
           </Col>
         </Row>
       </Form>
+      <div className='mt-5 d-flex justify-content-center'>
+        {movie.imdbID && <CustomCard movie = {movie}/>}
+
+      </div>
      
     </div>
   )
