@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const CustomCard = ({movie}) => {
+const CustomCard = ({movie={}, addMovie}) => {
     return (
     <div className='movie-cards mt-5 d-flex justify-content-center '>
             <Card  style={{ width: '20rem' }}>
@@ -14,8 +14,8 @@ const CustomCard = ({movie}) => {
                         Rating: {movie.imdbRating} <br /> Year: {movie.Year}
                     </Card.Text>
                     <div className='d-flex justify-content-between'>
-                    <Button variant="primary">Awesome</Button>
-                    <Button variant='secondary'>Boring</Button>
+                    <Button variant="success" onClick={addMovie({...movie, type:"awesome"})}>Awesome</Button>
+                    <Button variant='warning'>Boring</Button>
 
                     </div>
                     

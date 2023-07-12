@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import { fetchData } from '../../common/apis/movieApi';
 import CustomCard from "./CustomCard"
 
-const SearchForm = () => {
+const SearchForm = ({addMovie}) => {
   const [movieName, setMovieName] = useState("")
   const [movie, setMovie] = useState({})
   const[error, setError] = useState(false)
@@ -19,10 +19,11 @@ const SearchForm = () => {
   const handleOnSubmit = async(e) =>{
     e.preventDefault()
     const result = await fetchData(movieName)
+    console.log(result)
     
     
-    if(result.data.Response === "True"){
-      setMovie(result.data)
+    if(result.Response === "True"){
+      setMovie(result)
       console.log(movie)
       setError("")
     }else{
@@ -48,7 +49,7 @@ const SearchForm = () => {
         </Row>
       </Form>
       <div className='mt-5 d-flex justify-content-center'>
-        {movie.imdbID && <CustomCard movie = {movie}/>}
+        {movie.imdbID && <CustomCard movie={movie}  addMovie={addMovie}/>}
 
       </div>
      
