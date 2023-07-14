@@ -6,33 +6,26 @@ import SearchForm from './SearchForm'
 import ListContainer from '../ListContainer/ListContainer'
 
 const Home = () => {
-  const [ movieList, setMovieList] = useState([])
-  const addMovie = ()=>{
-    
+  const [movieList, setMovieList] = useState([])
+  const addMovie = (movie) => {
+    setMovieList([...movieList, movie])
   }
- 
+console.log(movieList)
   return (
     <DefaultLayout>
       <div className='wrapper pt-5'>
-      <Container>
-        <h3>My Movie Collection</h3>
-        <hr />
-        <div className=' w-60 bg-dark p-5 rounded'>
-        <SearchForm addMovie={addMovie} />
-        
-        
-
-        </div>
-        <div >
-        <ListContainer />
-        </div>
-        <div>
-        <div className="d-flex mt-2 ">0 Movies found!</div>
-        </div>
-        <hr />
-        
-        
-      </Container>
+        <Container>
+          <h3>My Movie Collection</h3>
+          <hr />
+          <div className=' w-60 bg-dark p-5 rounded'>
+            <SearchForm addMovie={addMovie} />
+          </div>
+          <div >
+            <ListContainer movieList={movieList} />
+          </div>
+          
+          <hr />
+        </Container>
       </div>
     </DefaultLayout>
   )
