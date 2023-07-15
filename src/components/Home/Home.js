@@ -8,7 +8,10 @@ import ListContainer from '../ListContainer/ListContainer'
 const Home = () => {
   const [movieList, setMovieList] = useState([])
   const addMovie = (movie) => {
-    setMovieList([...movieList, movie])
+    const filteredMovies = movieList.filter((item) => item.imdbID !== movie.imdbID)
+    setMovieList([...filteredMovies, movie])
+    console.log(movieList)
+
   }
 console.log(movieList)
 const deldisplay = (id) =>{
