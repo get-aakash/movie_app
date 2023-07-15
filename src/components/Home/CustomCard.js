@@ -17,12 +17,16 @@ const CustomCard = ({ movie = {}, handleAddToList, deldisplay, isDelete }) => {
                         <Button onClick={() => deldisplay(movie.imdbID)} variant='danger' className='mt-3 w-100'>Discard</Button>
                     )
                         :
-                        (
+                        <>
+                        
                             <div className='d-flex justify-content-between'>
                                 <Button variant="success" onClick={() => handleAddToList({ ...movie, type: "awesome" })}>Awesome</Button>
                                 <Button variant='warning' onClick={() => handleAddToList({ ...movie, type: "boring" })}>Boring</Button>
 
-                            </div>)}
+                            </div>
+                            <Button onClick={()=>deldisplay(movie.imdbID)} variant='danger' className='mt-3 w-100'>Discard</Button>
+                            </>
+                            }
 
 
                 </Card.Body>
