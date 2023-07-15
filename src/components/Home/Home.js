@@ -11,6 +11,15 @@ const Home = () => {
     setMovieList([...movieList, movie])
   }
 console.log(movieList)
+const deldisplay = (id) =>{
+  if(!window.confirm("Are you sure you want to delete this movie?")){
+    return;
+  }
+  const filteredMovies = movieList.filter((item) => item.imdbID !== id)
+  setMovieList(filteredMovies)
+  
+
+}
   return (
     <DefaultLayout>
       <div className='wrapper pt-5'>
@@ -21,7 +30,7 @@ console.log(movieList)
             <SearchForm addMovie={addMovie} />
           </div>
           <div >
-            <ListContainer movieList={movieList} />
+            <ListContainer deldisplay={deldisplay} movieList={movieList} />
           </div>
           
           <hr />

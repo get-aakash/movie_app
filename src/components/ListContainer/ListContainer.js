@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import CustomCard from '../Home/CustomCard';
 
-const ListContainer = ({movieList}) => {
+const ListContainer = ({movieList, deldisplay}) => {
   const [displayMovie, setDisplayMovie] = useState([])
 
   useEffect(()=>{
@@ -33,8 +33,8 @@ const ListContainer = ({movieList}) => {
       <Row>
         <Col className='d-flex flex-wrap justify-content-around gap-3'>
           {
-            displayMovie?.map((movie)=>(
-              <CustomCard key={movie.imdbID} movie={movie} isDelete={true} />
+            displayMovie?.map((movie,i)=>(
+              <CustomCard key={i} deldisplay={deldisplay} movie={movie} isDelete={true} />
             ))
           }
           

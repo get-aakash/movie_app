@@ -29,6 +29,10 @@ const SearchForm = ({ addMovie }) => {
       setError(true)
     }
   }
+  const deldisplay = () => {
+    setMovieName("");
+    setMovie({});
+  };
   const handleAddToList = (movie)=>{
     addMovie(movie)
     setMovie({})
@@ -39,7 +43,7 @@ const SearchForm = ({ addMovie }) => {
       <Form onSubmit={handleOnSubmit}>
         <Row>
           <Col xs={10}>
-            <Form.Control value={movieName} placeholder='Movie Name' onChange={handleOnChange} />
+            <Form.Control value={movieName} placeholder='Movie Name'  onChange={handleOnChange} />
           </Col>
 
           <Col>
@@ -48,7 +52,7 @@ const SearchForm = ({ addMovie }) => {
         </Row>
       </Form>
       <div className='mt-5 d-flex justify-content-center'>
-        {movie.imdbID && <CustomCard movie={movie} handleAddToList={handleAddToList} />}
+        {movie.imdbID && <CustomCard movie={movie} deldisplay={deldisplay} handleAddToList={handleAddToList} />}
 
       </div>
       {error && (
